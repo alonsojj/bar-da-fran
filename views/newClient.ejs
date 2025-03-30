@@ -10,23 +10,27 @@
     <p>Preencha os dados abaixo para salvar o cliente.</p>
     <form action="<%= action %>" method="POST">
       <p>
-          <label>Nome: <input type="text" name="nome" value= " <%= result.nome %> " /></label>
+        <label
+          >Nome: <input type="text" name="nome" value=" <%= result.nome %> "
+        /></label>
       </p>
       <p>
-          <label>Idade: <input type="number" name="idade" value= "<%= result.idade %>" /></label>
+        <label
+          >Idade: <input type="number" name="idade" value="<%= result.idade %>"
+        /></label>
       </p>
       <p>
-          <label>UF: <select name="uf">
-                  <% const s = "selected" %>
-                  <option <% if(result.uf === "SP") { %><%= s %><% } %>>SP</option>
-                  <option <% if(result.uf === "BH") { %><%= s %><% } %>>BH</option>
-                  <option <% if(result.uf === "BC") { %><%= s %><% } %>>BC</option>
-                  <!-- coloque os estados que quiser -->
-              </select></label>
+        <label
+          >Email
+          <input type="email" name="email" id="email" />
+        </label>
       </p>
       <p>
-          <a href="/">Cancelar</a> | <input type="submit" value="Salvar" />
+        <label for="tel">
+          <input type="tel" name="tel" id="tel" />
+        </label>
       </p>
-  </form>
+      <p><a href="/">Cancelar</a> | <input type="submit" value="Salvar" /></p>
+    </form>
   </body>
 </html>
