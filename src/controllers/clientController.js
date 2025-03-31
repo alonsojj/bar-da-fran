@@ -6,7 +6,11 @@ const clientController = {
       const result = await Client.findAll({
         order: [["id"]],
       });
-      res.render("clientList", { result });
+      res.render("itemList", {
+        title: "clientes",
+        type: "clients",
+        result,
+      });
     } catch (error) {
       console.error(error);
       res.status(500).render("error", { error });
@@ -15,8 +19,7 @@ const clientController = {
 
   create(req, res) {
     res.render("newItem", {
-      title: "Novo Cliente",
-      type: "client",
+      type: "clients",
       action: "/clients/new",
       result: {},
     });
@@ -56,7 +59,7 @@ const clientController = {
       }
 
       res.render("newItem", {
-        type: "client",
+        type: "clients",
         title: "Editar Cliente",
         action: "",
         result: cliente,

@@ -6,7 +6,7 @@ const productController = {
       const result = await Product.findAll({
         order: [["id"]],
       });
-      res.render("productList", { result });
+      res.render("itemList", { title: "Produtos", type: "products", result });
     } catch (error) {
       onsole.error(error);
       res.status(500).render("error", { error });
@@ -14,8 +14,8 @@ const productController = {
   },
   async create(req, res) {
     res.render("newItem", {
-      title: "Novo Produto",
-      type: "product",
+      title: "Produtos",
+      type: "products",
       action: "/products/new",
       result: {},
     });

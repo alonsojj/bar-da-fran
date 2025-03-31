@@ -28,7 +28,7 @@
         required
         />
         
-        <%if(type == "client") {%>
+        <%if(type == "clients") {%>
           <label for="idade">Idade:</label>
           <input
           type="number"
@@ -43,7 +43,7 @@
           
           <label for="tel">Telefone:</label>
           <input type="tel" name="tel" id="tel" value="<%= result.telefone %>"/>
-          <%}else if(type==="product"){%>
+          <%}else if(type==="products"){%>
             <label for="preco">Preço:</label>
             <input type="number" name="preco" id="preco" required />
             
