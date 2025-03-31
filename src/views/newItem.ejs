@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= type %></title>
+    <link rel="stylesheet" href="/stylesheets/newItem.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">← Voltar para Home</a></li>
+          <li><a href="/products">Produtos</a></li>
+          <li><a href="/clients">Clientes</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <h1><%= title %></h1>
+      <p>Preencha os dados abaixo para salvar o cliente.</p>
+      <form action="<%= action %>" method="POST" data-form>
+        <label for="nome">Nome:</label>
+        <input
+        type="text"
+        name="nome"
+        id="nome"
+        value="<%=result.nome%>"
+        required
+        />
+        
+        <%if(type == "client") {%>
+          <label for="idade">Idade:</label>
+          <input
+          type="number"
+          name="idade"
+          id="idade"
+          value="<%= result.idade %>"
+          required
+          />
+          
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email"  value="<%=result.email%>"/>
+          
+          <label for="tel">Telefone:</label>
+          <input type="tel" name="tel" id="tel" value="<%= result.telefone %>"/>
+          <%}else if(type==="product"){%>
+            <label for="preco">Preço:</label>
+            <input type="number" name="preco" id="preco" required />
+            
+            <label for="quantidade_em_stock">Em stock:</label>
+            <input
+            type="number"
+            name="quantidade_em_stock"
+            id="quantidade_em_stock"
+            required
+            />
+            <%}%>
+            
+            <div class="form-actions">
+              <a href="/">Cancelar</a>
+              <button type="submit" />Salvar</button>
+              <button type="submit" data-button>Salvar e Criar outro</button>
+            </div>
+          </form>
+          <script src="/js/newItem.js"></script>
+    </main>
+  </body>
+</html>
