@@ -41,7 +41,7 @@
           <tr>
             <td>Nome</td>
             <td>Idade</td>
-            <td>actions</td>
+            <td>Actions</td>
           </tr>
         </thead>
 
@@ -63,20 +63,17 @@
           <td>Nome</td>
           <td>Preco</td>
           <td>Stock</td>
+          <td>Actions</td>
         </thead>
         <tbody>
           <%result.forEach(function(product) {%>
-          <tr>
-            <td style="width: 50%"><%= product.nome %></td>
-            <td style="width: 15%"><%= product.preco %></td>
-            <td style="width: 15%"><%= product.quantidade_em_stock %></td>
-            <td>
+          <tr class="data-row">
+            <td><%= product.nome %></td>
+            <td><%= product.preco %></td>
+            <td><%= product.quantidade_em_stock %></td>
+            <td class="actions">
               <a href="/edit/<%= product.id %>">Editar</a>
-              <a
-                href="/delete/<%= product.id %>"
-                onclick="return confirm('Tem certeza?');"
-                >Excluir</a
-              >
+              <a href="/delete/<%= product.id %>" class="delete-btn">Excluir</a>
             </td>
           </tr>
           <% }) %>

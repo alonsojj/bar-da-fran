@@ -19,6 +19,7 @@ const clientController = {
 
   create(req, res) {
     res.render("newItem", {
+      title: "Clientes",
       type: "clients",
       action: "/clients/new",
       result: {},

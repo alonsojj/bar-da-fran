@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
-    quantidade_em_estoque: {
+    stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {

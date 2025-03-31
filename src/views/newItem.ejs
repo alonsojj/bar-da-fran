@@ -45,13 +45,13 @@
           <input type="tel" name="tel" id="tel" value="<%= result.telefone %>"/>
           <%}else if(type==="products"){%>
             <label for="preco">Preço:</label>
-            <input type="number" name="preco" id="preco" required />
+            <input type="number" name="preco" id="preco" min="1" step="any" required />
             
-            <label for="quantidade_em_stock">Em stock:</label>
+            <label min="1" for="stock">Em stock:</label>
             <input
             type="number"
-            name="quantidade_em_stock"
-            id="quantidade_em_stock"
+            name="stock"
+            id="stock"
             required
             />
             <%}%>
