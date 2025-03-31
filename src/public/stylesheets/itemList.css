@@ -7,12 +7,11 @@
 }
 * {
   font-family: "Poppins", sans-serif;
+  color: var(--font-color);
 }
 
 body {
   background-color: var(--background-color);
-  color: var(--font-color);
-
   line-height: 1.6;
   padding: 2rem;
   max-height: 100vh;
@@ -42,6 +41,7 @@ a {
 a:hover {
   color: #a57bff;
 }
+
 a:active {
   transform: scale(0.9);
   filter: brightness(0.9);
@@ -113,6 +113,22 @@ tbody tr:hover {
   background-color: var(--primary-color);
   color: var(--font-color);
   transition: all 0.3s ease;
+}
+.delete-btn {
+  text-transform: uppercase;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--font-color);
+  transition: all 0.3s ease;
+  border: none;
+}
+.delete-btn:hover {
+  box-shadow: 0 2px 8px var(--primary-color-effect);
+  transform: translateY(-2px);
 }
 
 .actions a:hover {

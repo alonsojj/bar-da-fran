@@ -1,32 +1,31 @@
 const { Client } = require("../sequelize");
 
 const clientController = {
-  // Listar todos clientes (GET /clientes)
   async index(req, res) {
     try {
-      const results = await Client.findAll({
+      const result = await Client.findAll({
         order: [["id"]],
       });
-      res.render("clientList", { results });
+      res.render("clientList", { result });
     } catch (error) {
       console.error(error);
       res.status(500).render("error", { error });
     }
   },
 
-  // Exibir formulário de criação (GET /clientes/new)
   create(req, res) {
-    res.render("newClient", {
+    res.render("newItem", {
       title: "Novo Cliente",
-      action: "/client/new",
+      type: "client",
+      action: "/clients/new",
       result: {},
     });
   },
 
-  // Salvar novo cliente (POST /clientes)
   async store(req, res) {
     try {
       const { nome, idade, email, tel } = req.body;
+      console.log(req.body);
 
       const novoCliente = await Client.create({
         nome,
@@ -34,20 +33,18 @@ const clientController = {
         email,
         tel,
       });
-
-      res.redirect("/client");
+      res.end();
     } catch (error) {
       console.error(error);
-      res.status(400).render("clientes/new", {
+      res.status(400).render("newItem", {
         title: "Novo Cliente",
-        action: "/clientes",
+        action: "/clients",
         result: req.body,
         error: "Dados inválidos. Verifique as informações.",
       });
     }
   },
 
-  // Exibir formulário de edição (GET /clientes/:id/edit)
   async edit(req, res) {
     try {
       const cliente = await Client.findByPk(req.params.id);
@@ -58,9 +55,10 @@ const clientController = {
         });
       }
 
-      res.render("clientes/new", {
+      res.render("newItem", {
+        type: "client",
         title: "Editar Cliente",
-        action: `/clientes/${cliente.id}?_method=PUT`,
+        action: "",
         result: cliente,
       });
     } catch (error) {
@@ -69,7 +67,6 @@ const clientController = {
     }
   },
 
-  // Atualizar cliente (PUT /clientes/:id)
   async update(req, res) {
     try {
       const cliente = await Client.findByPk(req.params.id);
@@ -80,28 +77,27 @@ const clientController = {
         });
       }
 
-      const { nome, idade, uf } = req.body;
+      const { nome, idade, email, tel } = req.body;
 
       await cliente.update({
         nome,
         idade: parseInt(idade),
-        uf,
+        email,
+        tel,
       });
-
-      res.redirect("/clientes");
+      res.end();
     } catch (error) {
       console.error(error);
-      res.status(400).render("clientes/new", {
+      res.status(400).render("newItem", {
         title: "Editar Cliente",
-        action: `/clientes/${req.params.id}?_method=PUT`,
+        action: "",
         result: req.body,
         error: "Erro ao atualizar. Verifique os dados.",
       });
     }
   },
 
-  // Excluir cliente (DELETE /clientes/:id)
-  async destroy(req, res) {
+  async delete(req, res) {
     try {
       const cliente = await Client.findByPk(req.params.id);
 
@@ -112,7 +108,7 @@ const clientController = {
       }
 
       await cliente.destroy();
-      res.redirect("/clientes");
+      res.end();
     } catch (error) {
       console.error(error);
       res.status(500).render("error", { error });

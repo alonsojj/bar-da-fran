@@ -52,11 +52,9 @@
             <td><%= client.idade %></td>
             <td class="actions">
               <a href="clients/<%= client.id %>">Editar</a>
-              <a
-                href="clients/<%= client.id %>"
-                onclick="return confirm('Tem certeza?');"
-                >Excluir</a
-              >
+              <button class="delete-btn" data-id="<%= client.id %>">
+                Excluir
+              </button>
             </td>
           </tr>
           <%})} %>
@@ -72,7 +70,7 @@
         <span id="pageNumber">Página 1</span>
         <button onclick="nextPage()">Próxima</button>
       </div>
-      <script src="/js/itemList.js"></script>
     </main>
+    <script src="/js/itemList.js"></script>
   </body>
 </html>

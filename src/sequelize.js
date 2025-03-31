@@ -76,7 +76,6 @@ function setupAssociations() {
   });
 }
 
-// Verificar conexão e sincronizar
 async function initializeDatabase() {
   try {
     await sequelize.authenticate();
