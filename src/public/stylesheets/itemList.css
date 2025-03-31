@@ -142,7 +142,7 @@ tfoot td {
   border: none;
 }
 
-.new-client-btn {
+.new-item-btn {
   display: inline-block;
   padding: 1rem 2rem;
   background-color: var(--primary-color);
@@ -151,7 +151,7 @@ tfoot td {
   transition: all 0.3s ease;
 }
 
-.new-client-btn:hover {
+.new-item-btn:hover {
   color: var(--font-color);
   box-shadow: 0px 0.3rem 15px var(--primary-color-effect);
 }
